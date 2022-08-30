@@ -4,7 +4,7 @@ import ListingForm from "../../components/homes/ListingForm";
 
 const CreateHome = () => {
   const addHome = async (data: any) => {
-    // await axios.post("/api/homes", data);
+    await axios.post("/api/homes", data);
     console.log({ data });
   };
   return (
