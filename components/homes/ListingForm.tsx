@@ -14,9 +14,9 @@ interface Props {
     title: string;
     description: string;
     price: number;
-    guests: number;
+    maxGuests: number;
     beds: number;
-    baths: number;
+    bathrooms: number;
   };
   redirectPath?: string;
   buttonText?: string;
@@ -27,9 +27,9 @@ const ListingSchema = Yup.object().shape({
   title: Yup.string().trim().required(),
   description: Yup.string().trim().required(),
   price: Yup.number().positive().integer().min(1).required(),
-  guests: Yup.number().positive().integer().min(1).required(),
+  maxGuests: Yup.number().positive().integer().min(1).required(),
   beds: Yup.number().positive().integer().min(1).required(),
-  baths: Yup.number().positive().integer().min(1).required(),
+  bathrooms: Yup.number().positive().integer().min(1).required(),
 });
 
 const ListingForm: React.FC<Props> = ({
@@ -50,7 +50,7 @@ const ListingForm: React.FC<Props> = ({
     try {
       setDisabled(true);
       toastId = toast.loading("Uploading...");
-      const { data } = await axios.post("/api/image-upload", { image });
+      const { data } = await axios.post("/api/homes/imageUpload", { image });
       setImageUrl(data?.url);
       toast.success("Successfully uploaded", { id: toastId });
     } catch (e) {
@@ -86,9 +86,9 @@ const ListingForm: React.FC<Props> = ({
     title: "",
     description: "",
     price: 0,
-    guests: 1,
+    maxGuests: 1,
     beds: 1,
-    baths: 1,
+    bathrooms: 1,
   };
 
   return (
@@ -140,7 +140,7 @@ const ListingForm: React.FC<Props> = ({
                   name="maxGuests"
                   type="number"
                   min="0"
-                  label="Guests"
+                  label="Max Guests"
                   placeholder="2"
                   disabled={disabled}
                 />
@@ -156,7 +156,7 @@ const ListingForm: React.FC<Props> = ({
                   name="bathrooms"
                   type="number"
                   min="0"
-                  label="Baths"
+                  label="BathRooms"
                   placeholder="1"
                   disabled={disabled}
                 />
