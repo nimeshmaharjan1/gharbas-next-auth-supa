@@ -49,9 +49,7 @@ const Layout: NextPage<Props> = ({ children }) => {
                 </ul>
               </div>
             </div>
-            <main className="container mx-auto px-4 py-4 lg:px-0">
-              {children}
-            </main>
+            <main className="container px-4 py-4 lg:px-0">{children}</main>
           </div>
           <div className="drawer-side">
             <label htmlFor="my-drawer-3" className="drawer-overlay"></label>

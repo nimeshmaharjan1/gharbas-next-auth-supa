@@ -8,7 +8,7 @@ const CreateHome = () => {
     console.log({ data });
   };
   return (
-    <div className="max-w-screen-sm mx-auto">
+    <div className="max-w-screen-sm">
       <h1 className="text-xl font-medium text-gray-800">List your home</h1>
       <p className="text-gray-500">
         Fill out the form below to list a new home.
