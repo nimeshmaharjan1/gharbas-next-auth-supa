@@ -5,9 +5,9 @@ interface Props {
 }
 const Card: React.FC<Props> = ({ home }) => {
   return (
-    <div className="card lg:w-96 card-compact bg-base-100 shadow-lg drop-shadow-xl">
+    <div className="card lg:w-96 bg-base-100 shadow-lg drop-shadow-xl">
       <figure>
-        <img src={home.image} alt={home.title} />
+        <img src={home.image} alt={home.title} style={{ height: "262px" }} />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{home.title}</h2>
